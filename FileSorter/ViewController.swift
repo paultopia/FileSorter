@@ -21,6 +21,12 @@ class ViewController: NSViewController {
     
     private var dragDropType = NSPasteboard.PasteboardType(rawValue: "private.table-row")
     @IBOutlet var tableView: NSTableView!
+    @IBOutlet var statusField: NSTextField!
+    @IBAction func clearButtonPressed(_ sender: Any) {
+        filesList = []
+        tableView.reloadData()
+        statusField.stringValue = Status.waiting.rawValue
+    }
     @IBAction func pickFilePressed(_ sender: Any) {
         let dialog = NSOpenPanel()
         dialog.title = "choose file"
@@ -35,6 +41,11 @@ class ViewController: NSViewController {
             let results = dialog.urls
             filesList.append(contentsOf: results)
             tableView.reloadData()
+            if (filesList.count >= 2){
+                statusField.stringValue = Status.ready.rawValue
+            } else {
+                statusField.stringValue = Status.waiting.rawValue
+            }
         } else {
             // User clicked on "Cancel"
             return
@@ -54,6 +65,7 @@ class ViewController: NSViewController {
                 if result {
                 filesList = []
                 tableView.reloadData()
+                statusField.stringValue = Status.success.rawValue
                 }
             }
         } else {

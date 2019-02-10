@@ -12,6 +12,7 @@
 		F7135DEA220FC63F00D55B41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7135DE9220FC63F00D55B41 /* Assets.xcassets */; };
 		F7135DED220FC63F00D55B41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7135DEB220FC63F00D55B41 /* Main.storyboard */; };
 		F7B906102210B83B0074DC25 /* pdfmerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B9060F2210B83B0074DC25 /* pdfmerge.swift */; };
+		F7B906122210CDD40074DC25 /* statuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B906112210CDD40074DC25 /* statuses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		F7135DEE220FC63F00D55B41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7135DEF220FC63F00D55B41 /* FileSorter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileSorter.entitlements; sourceTree = "<group>"; };
 		F7B9060F2210B83B0074DC25 /* pdfmerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pdfmerge.swift; sourceTree = "<group>"; };
+		F7B906112210CDD40074DC25 /* statuses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statuses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				F7135DE5220FC63E00D55B41 /* AppDelegate.swift */,
 				F7135DE7220FC63E00D55B41 /* ViewController.swift */,
+				F7B906112210CDD40074DC25 /* statuses.swift */,
 				F7B9060F2210B83B0074DC25 /* pdfmerge.swift */,
 				F7135DE9220FC63F00D55B41 /* Assets.xcassets */,
 				F7135DEB220FC63F00D55B41 /* Main.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7135DE8220FC63E00D55B41 /* ViewController.swift in Sources */,
+				F7B906122210CDD40074DC25 /* statuses.swift in Sources */,
 				F7B906102210B83B0074DC25 /* pdfmerge.swift in Sources */,
 				F7135DE6220FC63E00D55B41 /* AppDelegate.swift in Sources */,
 			);
