@@ -22,14 +22,23 @@ class ViewController: NSViewController {
     private var dragDropType = NSPasteboard.PasteboardType(rawValue: "private.table-row")
     @IBOutlet var tableView: NSTableView!
     @IBOutlet var statusField: NSTextField!
+    @IBOutlet var mergeButton: NSButton!
     @IBAction func removeButtonPressed(_ sender: Any) {
+        guard (tableView.selectedRow >= 0) else {
+            return
+        }
         filesList.remove(at: tableView.selectedRow)
         tableView.reloadData()
+        if (filesList.count < 2){
+            mergeButton.isEnabled = false
+            statusField.stringValue = Status.waiting.rawValue
+        }
     }
     @IBAction func clearButtonPressed(_ sender: Any) {
         filesList = []
         tableView.reloadData()
         statusField.stringValue = Status.waiting.rawValue
+        mergeButton.isEnabled = false
     }
     @IBAction func pickFilePressed(_ sender: Any) {
         let dialog = NSOpenPanel()
@@ -47,6 +56,7 @@ class ViewController: NSViewController {
             tableView.reloadData()
             if (filesList.count >= 2){
                 statusField.stringValue = Status.ready.rawValue
+                mergeButton.isEnabled = true
             } else {
                 statusField.stringValue = Status.waiting.rawValue
             }
@@ -67,9 +77,10 @@ class ViewController: NSViewController {
             if let dest = dialog.url {
                 let result = doMerge(files: filesList, outfile: dest)
                 if result {
-                filesList = []
-                tableView.reloadData()
-                statusField.stringValue = Status.success.rawValue
+                    filesList = []
+                    tableView.reloadData()
+                    statusField.stringValue = Status.success.rawValue
+                    mergeButton.isEnabled = false
                 }
             }
         } else {
