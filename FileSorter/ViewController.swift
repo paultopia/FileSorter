@@ -34,7 +34,6 @@ class ViewController: NSViewController {
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             if let result = dialog.url {
             filesList.append(result)
-            print(filesList)
             tableView.reloadData()
             }
         } else {
@@ -52,7 +51,11 @@ class ViewController: NSViewController {
         dialog.allowedFileTypes = ["pdf"];
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             if let dest = dialog.url {
-                let _ = doMerge(files: filesList, outfile: dest)
+                let result = doMerge(files: filesList, outfile: dest)
+                if result {
+                filesList = []
+                tableView.reloadData()
+                }
             }
         } else {
             // User clicked on "Cancel"
