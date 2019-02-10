@@ -28,14 +28,13 @@ class ViewController: NSViewController {
         dialog.showsHiddenFiles = true;
         dialog.canChooseDirectories = false;
         dialog.canCreateDirectories = false;
-        dialog.allowsMultipleSelection = false;
+        dialog.allowsMultipleSelection = true;
         dialog.allowedFileTypes = ["pdf"];
         
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
-            if let result = dialog.url {
-            filesList.append(result)
+            let results = dialog.urls
+            filesList.append(contentsOf: results)
             tableView.reloadData()
-            }
         } else {
             // User clicked on "Cancel"
             return
