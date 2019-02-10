@@ -11,6 +11,7 @@
 		F7135DE8220FC63E00D55B41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7135DE7220FC63E00D55B41 /* ViewController.swift */; };
 		F7135DEA220FC63F00D55B41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7135DE9220FC63F00D55B41 /* Assets.xcassets */; };
 		F7135DED220FC63F00D55B41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7135DEB220FC63F00D55B41 /* Main.storyboard */; };
+		F7B906102210B83B0074DC25 /* pdfmerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B9060F2210B83B0074DC25 /* pdfmerge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		F7135DEC220FC63F00D55B41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7135DEE220FC63F00D55B41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7135DEF220FC63F00D55B41 /* FileSorter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileSorter.entitlements; sourceTree = "<group>"; };
+		F7B9060F2210B83B0074DC25 /* pdfmerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pdfmerge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				F7135DE5220FC63E00D55B41 /* AppDelegate.swift */,
 				F7135DE7220FC63E00D55B41 /* ViewController.swift */,
+				F7B9060F2210B83B0074DC25 /* pdfmerge.swift */,
 				F7135DE9220FC63F00D55B41 /* Assets.xcassets */,
 				F7135DEB220FC63F00D55B41 /* Main.storyboard */,
 				F7135DEE220FC63F00D55B41 /* Info.plist */,
@@ -95,6 +98,11 @@
 				TargetAttributes = {
 					F7135DE1220FC63E00D55B41 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -134,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7135DE8220FC63E00D55B41 /* ViewController.swift in Sources */,
+				F7B906102210B83B0074DC25 /* pdfmerge.swift in Sources */,
 				F7135DE6220FC63E00D55B41 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

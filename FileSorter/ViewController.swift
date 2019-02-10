@@ -29,13 +29,12 @@ class ViewController: NSViewController {
         dialog.canChooseDirectories = false;
         dialog.canCreateDirectories = false;
         dialog.allowsMultipleSelection = false;
-        dialog.allowedFileTypes = ["txt", "pdf"];
+        dialog.allowedFileTypes = ["pdf"];
         
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             if let result = dialog.url {
             filesList.append(result)
             print(filesList)
-            fileName.stringValue = result.path
             tableView.reloadData()
             }
         } else {
@@ -44,6 +43,24 @@ class ViewController: NSViewController {
         }
     }
     
+    @IBAction func mergeButtonPressed(_ sender: Any) {
+        let dialog = NSSavePanel()
+        dialog.title = "choose destination"
+        dialog.showsResizeIndicator = true;
+        dialog.showsHiddenFiles = true;
+        dialog.canCreateDirectories = true;
+        dialog.allowedFileTypes = ["pdf"];
+        if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+            if let dest = dialog.url {
+                let _ = doMerge(files: filesList, outfile: dest)
+            }
+        } else {
+            // User clicked on "Cancel"
+            return
+        }
+
+        
+    }
     @IBOutlet var fileName: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
