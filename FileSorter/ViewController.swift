@@ -9,6 +9,7 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    var filesList: [URL] = []
     @IBAction func pickFilePressed(_ sender: Any) {
         let dialog = NSOpenPanel()
         dialog.title = "choose file"
@@ -20,10 +21,10 @@ class ViewController: NSViewController {
         dialog.allowedFileTypes = ["txt", "pdf"];
         
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
-            let result = dialog.url // Pathname of the file
-            
-            if let path = result?.path {
-                fileName.stringValue = path
+            if let result = dialog.url {
+            filesList.append(result)
+            print(filesList)
+            fileName.stringValue = result.path
             }
         } else {
             // User clicked on "Cancel"

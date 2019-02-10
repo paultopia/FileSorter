@@ -709,7 +709,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-wd-qSZ">
-                                <rect key="frame" x="18" y="171" width="59" height="17"/>
+                                <rect key="frame" x="18" y="171" width="233" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Filename" id="cvm-yM-5RM">
                                     <font key="font" metaFont="system"/>
