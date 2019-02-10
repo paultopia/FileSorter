@@ -22,6 +22,10 @@ class ViewController: NSViewController {
     private var dragDropType = NSPasteboard.PasteboardType(rawValue: "private.table-row")
     @IBOutlet var tableView: NSTableView!
     @IBOutlet var statusField: NSTextField!
+    @IBAction func removeButtonPressed(_ sender: Any) {
+        filesList.remove(at: tableView.selectedRow)
+        tableView.reloadData()
+    }
     @IBAction func clearButtonPressed(_ sender: Any) {
         filesList = []
         tableView.reloadData()
