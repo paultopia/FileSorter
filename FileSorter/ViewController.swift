@@ -10,6 +10,15 @@ import Cocoa
 
 class ViewController: NSViewController {
     var filesList: [URL] = []
+    
+    // helper function for shuffling arrays around
+    func moveOver<Item>(_ arr: [Item], start: Int, dest: Int) -> [Item] {
+        var out = arr
+        let rem = out.remove(at: start)
+        out.insert(rem, at: dest)
+        return out
+    }
+    
     private var dragDropType = NSPasteboard.PasteboardType(rawValue: "private.table-row")
     @IBOutlet var tableView: NSTableView!
     @IBAction func pickFilePressed(_ sender: Any) {
@@ -86,6 +95,8 @@ extension ViewController: NSTableViewDelegate {
 
 extension ViewController {
     
+    // borrowed from https://stackoverflow.com/a/52368491/4386239 with some mods
+    
     func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
         
         let item = NSPasteboardItem()
@@ -101,9 +112,16 @@ extension ViewController {
         return []
     }
     
+    func reorderFilesList(start: [Int], dest: Int){
+        let from = start[0]
+        var to = dest
+        if dest > from {
+            to -= 1
+        }
+        filesList = moveOver(filesList, start: from, dest: to)
+    }
+    
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
-        
-        // borrowed from https://stackoverflow.com/a/52368491/4386239 
         
         var oldIndexes = [Int]()
         info.enumerateDraggingItems(options: [], for: tableView, classes: [NSPasteboardItem.self], searchOptions: [:]) { dragItem, _, _ in
@@ -115,8 +133,13 @@ extension ViewController {
         var oldIndexOffset = 0
         var newIndexOffset = 0
         
-        // For simplicity, the code below uses `tableView.moveRowAtIndex` to move rows around directly.
-        // You may want to move rows in your content array and then call `tableView.reloadData()` instead.
+        reorderFilesList(start: oldIndexes, dest: row)
+    /*
+        checking code for getting file sort right.  Can be removed later.
+        print(oldIndexes)
+        print(row)
+        print(filesList)
+    */
         tableView.beginUpdates()
         for oldIndex in oldIndexes {
             if oldIndex < row {
