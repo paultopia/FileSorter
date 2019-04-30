@@ -10,6 +10,7 @@ import Cocoa
 
 class ViewController: NSViewController {
     var filesList: [URL] = []
+    var fileType = "pdf"
     
     // helper function for shuffling arrays around
     func moveOver<Item>(_ arr: [Item], start: Int, dest: Int) -> [Item] {
@@ -17,6 +18,21 @@ class ViewController: NSViewController {
         let rem = out.remove(at: start)
         out.insert(rem, at: dest)
         return out
+    }
+    
+    
+    @IBOutlet var typeSwitcher: NSSegmentedControl!
+    
+    
+    @IBAction func typeSwitcherPressed(_ sender: Any) {
+        switch typeSwitcher!.selectedSegment {
+        case 0:
+            fileType = "pdf"
+        case 1:
+            fileType = "docx"
+        default:
+            break;
+        }
     }
     
     private var dragDropType = NSPasteboard.PasteboardType(rawValue: "private.table-row")
@@ -43,12 +59,12 @@ class ViewController: NSViewController {
     @IBAction func pickFilePressed(_ sender: Any) {
         let dialog = NSOpenPanel()
         dialog.title = "choose file"
-        dialog.showsResizeIndicator = true;
-        dialog.showsHiddenFiles = true;
-        dialog.canChooseDirectories = false;
-        dialog.canCreateDirectories = false;
-        dialog.allowsMultipleSelection = true;
-        dialog.allowedFileTypes = ["pdf"];
+        dialog.showsResizeIndicator = true
+        dialog.showsHiddenFiles = true
+        dialog.canChooseDirectories = false
+        dialog.canCreateDirectories = false
+        dialog.allowsMultipleSelection = true
+        dialog.allowedFileTypes = [fileType]
         
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             let results = dialog.urls
@@ -72,10 +88,10 @@ class ViewController: NSViewController {
         dialog.showsResizeIndicator = true;
         dialog.showsHiddenFiles = true;
         dialog.canCreateDirectories = true;
-        dialog.allowedFileTypes = ["pdf"];
+        dialog.allowedFileTypes = [fileType];
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             if let dest = dialog.url {
-                let result = doMerge(files: filesList, outfile: dest)
+                let result = doMerge(files: filesList, outfile: dest, type: fileType)
                 if result {
                     filesList = []
                     tableView.reloadData()

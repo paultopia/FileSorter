@@ -11,6 +11,8 @@
 		F7135DE8220FC63E00D55B41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7135DE7220FC63E00D55B41 /* ViewController.swift */; };
 		F7135DEA220FC63F00D55B41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7135DE9220FC63F00D55B41 /* Assets.xcassets */; };
 		F7135DED220FC63F00D55B41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7135DEB220FC63F00D55B41 /* Main.storyboard */; };
+		F71700692278FD7F003BD5B5 /* docxmerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71700682278FD7F003BD5B5 /* docxmerge.swift */; };
+		F717006B227907DD003BD5B5 /* mergeDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717006A227907DD003BD5B5 /* mergeDispatcher.swift */; };
 		F7B906102210B83B0074DC25 /* pdfmerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B9060F2210B83B0074DC25 /* pdfmerge.swift */; };
 		F7B906122210CDD40074DC25 /* statuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B906112210CDD40074DC25 /* statuses.swift */; };
 /* End PBXBuildFile section */
@@ -23,6 +25,8 @@
 		F7135DEC220FC63F00D55B41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7135DEE220FC63F00D55B41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7135DEF220FC63F00D55B41 /* FileSorter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileSorter.entitlements; sourceTree = "<group>"; };
+		F71700682278FD7F003BD5B5 /* docxmerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = docxmerge.swift; sourceTree = "<group>"; };
+		F717006A227907DD003BD5B5 /* mergeDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mergeDispatcher.swift; sourceTree = "<group>"; };
 		F7B9060F2210B83B0074DC25 /* pdfmerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pdfmerge.swift; sourceTree = "<group>"; };
 		F7B906112210CDD40074DC25 /* statuses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statuses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +65,8 @@
 				F7135DE7220FC63E00D55B41 /* ViewController.swift */,
 				F7B906112210CDD40074DC25 /* statuses.swift */,
 				F7B9060F2210B83B0074DC25 /* pdfmerge.swift */,
+				F717006A227907DD003BD5B5 /* mergeDispatcher.swift */,
+				F71700682278FD7F003BD5B5 /* docxmerge.swift */,
 				F7135DE9220FC63F00D55B41 /* Assets.xcassets */,
 				F7135DEB220FC63F00D55B41 /* Main.storyboard */,
 				F7135DEE220FC63F00D55B41 /* Info.plist */,
@@ -146,8 +152,10 @@
 			files = (
 				F7135DE8220FC63E00D55B41 /* ViewController.swift in Sources */,
 				F7B906122210CDD40074DC25 /* statuses.swift in Sources */,
+				F71700692278FD7F003BD5B5 /* docxmerge.swift in Sources */,
 				F7B906102210B83B0074DC25 /* pdfmerge.swift in Sources */,
 				F7135DE6220FC63E00D55B41 /* AppDelegate.swift in Sources */,
+				F717006B227907DD003BD5B5 /* mergeDispatcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -53,12 +53,4 @@ func fileExists(_ filename: URL) -> Bool {
     return fileManager.fileExists(atPath: filename.path)
 }
 
-public func doMerge(files: [URL], outfile: URL) -> Bool {
-    guard let merged = try? mergePDFs(files: files) else {
-        print("failed")
-        return false
-    }
-    merged.write(to: outfile)
-    print("Success! Merged \(files) into \(outfile)!")
-    return true
-}
+
