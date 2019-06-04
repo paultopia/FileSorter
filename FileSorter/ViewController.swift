@@ -139,11 +139,10 @@ extension ViewController: NSTableViewDelegate {
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     var text: String = ""
     var cellIdentifier: String = ""
-    
     let item = filesList[row]
     
     if tableColumn == tableView.tableColumns[0] {
-        text = item.path
+        text = item.lastPathComponent
         cellIdentifier = CellIdentifiers.NameCell
     }
     
